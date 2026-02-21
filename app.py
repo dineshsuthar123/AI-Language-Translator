@@ -50,7 +50,7 @@ PROVIDER_MAPPING = {
 history_file = "translation_history.json"
 
 # Load translation history
-def load_history():
+def load_history() -> list:
     if os.path.exists(history_file):
         with open(history_file, encoding="utf-8-sig") as file:
             return json.load(file)
@@ -260,7 +260,9 @@ prompt = ChatPromptTemplate.from_messages(
             - Ensure cultural and contextual relevance.
             - Consider regional dialects or variations.
             - Choose between formal and informal language based on the context.
-            - Choose the format based on the input: if it's a single word, respond in the single-word format; if it's a phrase or sentence, respond in the phrase format.
+            - Choose the format based on the input:
+                if it's a single word, respond in the single-word format;
+                if it's a phrase or sentence, respond in the phrase format.
 
             **Single Word Translation:**
             When translating a single word, provide comprehensive information in the following JSON format:
